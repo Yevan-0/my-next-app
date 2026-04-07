@@ -1,4 +1,11 @@
 import React from 'react'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+    title: "About",
+    description: "Hi, I'm Yevan — a Frontend Software Engineer Intern at IMI Games with a passion for building clean," +
+        "responsive user interfaces. I enjoy turning ideas into real, interactive experiences on the web."
+}
 
 const page = () => {
     return (

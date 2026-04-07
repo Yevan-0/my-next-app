@@ -1,4 +1,10 @@
 import React from 'react'
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title : "Products",
+    description: "Type a string in the url to test the change in dynamic routing (e.g. http://localhost:3000/products/computer)"
+}
 
 const pages = () => {
     return (
