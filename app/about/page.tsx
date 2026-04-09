@@ -31,6 +31,8 @@ async function AboutImage({
                     objectFit: 'cover'
                 }}
                 className='z-0 brightness-80 blur-sm'
+                loading='eager'
+                priority
             />
             <div className='absolute inset-0 bg-black/20 z-1' />
         </div>

@@ -30,6 +30,8 @@ async function MountainImage({
                     objectFit: 'cover'
                 }}
                 className='z-0 brightness-80 blur-sm'
+                priority
+                loading='eager'
             />
             <div className='absolute inset-0 bg-black/60 z-1'/>
         </div>
