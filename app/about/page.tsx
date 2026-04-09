@@ -1,5 +1,5 @@
-import React from 'react'
 import { Metadata } from 'next'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
     title: "About",
@@ -7,12 +7,44 @@ export const metadata: Metadata = {
         "responsive user interfaces. I enjoy turning ideas into real, interactive experiences on the web."
 }
 
+async function AboutImage({
+    imageFilename,
+    alt
+}: {
+    imageFilename: string
+    alt: string
+}) {
+    const { default: image } = await import(
+        `@/public/${imageFilename}`
+    )
+
+    return (
+        <div>
+            <Image
+                alt={alt}
+                src={image}
+                placeholder='blur'
+                quality={100}
+                fill
+                sizes="100vw"
+                style={{
+                    objectFit: 'cover'
+                }}
+                className='z-0 brightness-80 blur-sm'
+            />
+            <div className='absolute inset-0 bg-black/20 z-1' />
+        </div>
+    )
+}
+
 const page = () => {
     return (
         <div className="min-h-screen flex items-center justify-center" >
-            <div className="space-y-3 max-w-3xl"><h1 className="text-5xl font-semibold">About Page</h1>
+            <AboutImage imageFilename='maths.jpg' alt='about background'/>
+        
+            <div className="relative z-10 space-y-3 max-w-3xl"><h1 className="text-5xl font-semibold">About Page</h1>
 
-                <p className="text-gray-400">Hi, I'm Yevan — a Frontend Software Engineer Intern at IMI Games with a passion for building clean,
+                <p className="text-white">Hi, I'm Yevan — a Frontend Software Engineer Intern at IMI Games with a passion for building clean,
                     responsive user interfaces. I enjoy turning ideas into real, interactive experiences on the web.</p>
 
                 <h3 className='text-2xl font-semibold'>Skills and Technologies</h3>
