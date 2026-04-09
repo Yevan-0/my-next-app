@@ -33,7 +33,7 @@ async function MountainImage({
                 priority
                 loading='eager'
             />
-            <div className='absolute inset-0 bg-black/60 z-1'/>
+            <div className='absolute inset-0 bg-white/60 dark:bg-black/60 z-1' />
         </div>
     )
 }
@@ -46,7 +46,7 @@ const Page = () => {
 
             <div className="relative z-10 space-y-3 max-w-3xl">
                 <h1 className="text-5xl font-semibold">Experience</h1>
-                <p className="text-white">This is the experience page. Conetent coming soon.</p>
+                <p >This is the experience page. Conetent coming soon.</p>
 
 
 

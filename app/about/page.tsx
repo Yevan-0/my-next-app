@@ -18,8 +18,11 @@ async function AboutImage({
         `@/public/${imageFilename}`
     )
 
+
+
+
     return (
-        <div>
+        <div className='absolute inset-0'>
             <Image
                 alt={alt}
                 src={image}
@@ -30,11 +33,12 @@ async function AboutImage({
                 style={{
                     objectFit: 'cover'
                 }}
-                className='z-0 brightness-80 blur-sm'
+                className='z-0 brightness-80 blur-sm invert dark:invert-0'
                 loading='eager'
                 priority
+
             />
-            <div className='absolute inset-0 bg-black/20 z-1' />
+            <div className='absolute inset-0 bg-white/20 dark:bg-black/20 z-1' />
         </div>
     )
 }
@@ -46,15 +50,15 @@ const page = () => {
         
             <div className="relative z-10 space-y-3 max-w-3xl"><h1 className="text-5xl font-semibold">About Page</h1>
 
-                <p className="text-white">Hi, I'm Yevan — a Frontend Software Engineer Intern at IMI Games with a passion for building clean,
+                <p>Hi, I'm Yevan — a Frontend Software Engineer Intern at IMI Games with a passion for building clean,
                     responsive user interfaces. I enjoy turning ideas into real, interactive experiences on the web.</p>
 
                 <h3 className='text-2xl font-semibold'>Skills and Technologies</h3>
                 <ul className='list-disc list-inside'>
-                    <li className='text-2 font-semibold'>React</li>
-                    <li className='text-2 font-semibold'>JavaScript</li>
-                    <li className='text-2 font-semibold'>Python</li>
-                    <li className='text-2 font-semibold'>Nextjs <span className='font-light'>(Currently Learning)</span></li>
+                    <li className='text-base font-semibold'>React</li>
+                    <li className='text-base font-semibold'>JavaScript</li>
+                    <li className='text-base font-semibold'>Python</li>
+                    <li className='text-base font-semibold'>Nextjs <span className='font-light'>(Currently Learning)</span></li>
                 </ul>
             </div>
 
