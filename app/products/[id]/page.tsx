@@ -1,19 +1,26 @@
-import React from 'react'
+import { Product } from "../../types/product"
 
 const page = async ({ params }: { params: Promise<{ id: string }> }) => {
     const { id } = await params
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products.json`)
+    const products: Product[] = await res.json()
+
+    const product = products.find((p) => p.id === Number(id))
+
+    if (!product) return <div>Product not found</div>
+
     return (
-        <div className="min-h-screen flex items-center justify-center" >
-            <div className="space-y-3 max-w-3xl"><h1 className="text-5xl font-semibold">Products:{id}</h1>
-
-                <p className="text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur s
-                    int occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
+        <div className="min-h-screen flex items-center justify-center">
+            <div className="max-w-2xl space-y-4">
+                <img src={product.image} alt={product.name} className="w-full rounded-xl" />
+                <h1 className="text-3xl font-bold">{product.name}</h1>
+                <p className="">{product.description}</p>
+                <p className="">{product.category}</p>
+                <p className="text-2xl font-bold">${product.price}</p>
+                <p>⭐ {product.rating}</p>
+                <p className="text-sm font-semibold">{product.reviews} reviews</p>
             </div>
-
         </div>
     )
 }
